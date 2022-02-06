@@ -10,14 +10,19 @@ class BuildEcrImage(Construct):
     def __init__(self, scope: Construct, id: str, ecr_repo_name: str, image_tag: str, directory: str, account: str, region: str, **kwargs) -> None:
         super().__init__(scope, id, **kwargs)
 
+        #Create ECR Repo
         ecr_repo=_ecr.Repository(
           self, 'ecr_repo',
           repository_name=ecr_repo_name
         )
+
+        #Build Docker Image
         docker_image=_ecr_assets.DockerImageAsset(
           self, 'docker_image',
           directory=directory
-        )  
+        )
+
+        #Push Image to ECR  
         ecr_deployment=_ecr_deployment.ECRDeployment(
           self, 'ecr_deployment',
           src=_ecr_deployment.DockerImageName(docker_image.image_uri),

@@ -5,6 +5,7 @@ import aws_cdk as cdk
 
 from cdk_stacks.cdk_code_pipeline import CdkCodePipelineStack
 from common.get_environment import GetEnvironment
+from cdk_stacks.eks_app_alpha import Deploy
 
 app=cdk.App()
 
@@ -16,5 +17,7 @@ CdkCodePipelineStack(
     codestar_con='44b4e080-b081-4541-9d72-64ffe4a69ae1',
     env=env[0],
 )
+
+Deploy(app, 'EKS-Cluster', env=env[0])
 
 app.synth()
