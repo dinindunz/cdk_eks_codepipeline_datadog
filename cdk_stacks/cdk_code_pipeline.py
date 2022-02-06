@@ -32,16 +32,16 @@ class CdkCodePipelineStack(Stack):
                 commands=[
                     'npm install -g aws-cdk', 
                     'python3 -m pip install -r requirements.txt', 
-                    'npx cdk synth'
+                    'cdk synth'
                 ]
             ),
             self_mutation=True
         )
 
         #if source_action.variables.branch_name=='dev':
-        deploy_pipeline.add_stage(
-            DeployStacks(self, 'Deploy-Dev-Stacks', 'dev', env=dev_env[0])
-        )
+        #deploy_pipeline.add_stage(
+        #    DeployStacks(self, 'Deploy-Dev-Stacks', 'dev', env=dev_env[0])
+        #)
 
         #deploy_pipeline.add_application_stage(
         #    DeployModules(self, 'Deploy-Prod', 'prod', env=prod_env[0])
