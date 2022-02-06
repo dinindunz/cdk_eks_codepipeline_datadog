@@ -32,7 +32,8 @@ class CdkCodePipelineStack(Stack):
                 commands=[
                     'npm install -g aws-cdk', 
                     'python3 -m pip install -r requirements.txt', 
-                    'cdk synth'
+                    'cdk synth',
+                    'ls -al'
                 ]
             ),
             self_mutation=True
