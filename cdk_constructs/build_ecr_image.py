@@ -12,13 +12,13 @@ class BuildEcrImage(Construct):
 
         #Create ECR Repo
         ecr_repo=_ecr.Repository(
-          self, 'ecr_repo',
+          self, id,
           repository_name=ecr_repo_name
         )
 
         #Build Docker Image
         docker_image=_ecr_assets.DockerImageAsset(
-          self, 'docker_image',
+          self, ecr_repo_name,
           directory=directory
         )
 

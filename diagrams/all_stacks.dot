@@ -117,8 +117,8 @@ digraph "Diagram" {
           width = 2,
           height = 2.4819999999999998,
         ];
-        "EKS-Cluster/deploy_eks_cluster/eks_cluster" [
-          label = " eks_cluster",
+        "EKS-Cluster/Deploy_EKS_App_Alpha/Deploy_EKS_App_Alpha-Cluster" [
+          label = " Deploy EKS App Alpha\nCluster",
           fontsize = 12,
         ];
         "EKS-Cluster/@aws-cdk--aws-eks.ClusterResourceProvider.NestedStack/@aws-cdk--aws-eks.ClusterResourceProvider.NestedStackResource" [
@@ -147,9 +147,9 @@ digraph "Diagram" {
           width = 1.2,
           height = 1.466,
         ];
-        subgraph "cluster-SubGraph.build_ecr_image" {
+        subgraph "cluster-SubGraph.Build_ECR_cdk--eks_app_alpha" {
           graph [
-            label = "build_ecr_image",
+            label = "Build_ECR_cdk--eks_app_alpha",
             labelloc = "b",
             labeljust = "l",
             margin = "10",
@@ -159,8 +159,8 @@ digraph "Diagram" {
             style = "filled,rounded",
             fillcolor = "#d6d6d6",
           ];
-          "EKS-Cluster/build_ecr_image/ecr_repo" [
-            label = " ecr_repo",
+          "EKS-Cluster/Build_ECR_cdk--eks_app_alpha/Build_ECR_cdk--eks_app_alpha" [
+            label = " Build ECR cdk  eks\napp alpha",
             fontsize = 12,
             image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Service/Arch_Compute/64/Arch_Amazon-Elastic-Container-Registry_64@5x.png",
             imagescale = "true",
@@ -170,9 +170,9 @@ digraph "Diagram" {
             fixedsize = "true",
             labelloc = "b",
             width = 1.2,
-            height = 1.466,
+            height = 1.682,
           ];
-          "EKS-Cluster/build_ecr_image/ecr_deployment/CustomResource" [
+          "EKS-Cluster/Build_ECR_cdk--eks_app_alpha/ecr_deployment/CustomResource" [
             label = " CloudFormation\nCustomResource\nCustomResource",
             fontsize = 12,
             image = "/usr/local/lib/node_modules/cdk-dia/icons/aws/Service/Arch_Management-Governance/64/Arch_AWS-CloudFormation_64@5x.png",
@@ -377,10 +377,10 @@ digraph "Diagram" {
   "CDK-Pipeline-EKS-Clusters/deploy_pipeline/UpdatePipeline/SelfMutation" -> "CDK-Pipeline-EKS-Clusters/deploy_pipeline/Pipeline" [
     dir = "both",
   ];
-  "EKS-Cluster/@aws-cdk--aws-eks.ClusterResourceProvider.NestedStack/@aws-cdk--aws-eks.ClusterResourceProvider.NestedStackResource" -> "EKS-Cluster/deploy_eks_cluster/eks_cluster" [
+  "EKS-Cluster/@aws-cdk--aws-eks.ClusterResourceProvider.NestedStack/@aws-cdk--aws-eks.ClusterResourceProvider.NestedStackResource" -> "EKS-Cluster/Deploy_EKS_App_Alpha/Deploy_EKS_App_Alpha-Cluster" [
     dir = "both",
   ];
-  "EKS-Cluster/@aws-cdk--aws-eks.KubectlProvider.NestedStack/@aws-cdk--aws-eks.KubectlProvider.NestedStackResource" -> "EKS-Cluster/deploy_eks_cluster/eks_cluster" [
+  "EKS-Cluster/@aws-cdk--aws-eks.KubectlProvider.NestedStack/@aws-cdk--aws-eks.KubectlProvider.NestedStackResource" -> "EKS-Cluster/Deploy_EKS_App_Alpha/Deploy_EKS_App_Alpha-Cluster" [
     dir = "both",
   ];
 }

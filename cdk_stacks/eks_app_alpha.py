@@ -16,7 +16,7 @@ class Deploy(Stack):
         image_tag='1.0.0'
 
         ecr.BuildEcrImage(
-            self, 'build_ecr_image',
+            self, 'Build_ECR_Image',
             ecr_repo_name=ecr_repo_name,
             image_tag=image_tag,
             directory='./src/eks_app_alpha',
@@ -25,7 +25,7 @@ class Deploy(Stack):
         )
 
         eks.DeployEksCluster(
-            self, 'deploy_eks_cluster',
+            self, 'Deploy_EKS_App_Alpha',
             ecr_repo_name=ecr_repo_name,
             image_tag=image_tag,
             container_port=8080

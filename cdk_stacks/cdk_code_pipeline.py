@@ -18,8 +18,9 @@ class CdkCodePipelineStack(Stack):
         dev_env=GetEnvironment.aws_enviromnet('dev')
         prod_env=GetEnvironment.aws_enviromnet('prod')
         
-        deploy_pipeline=_pipelines.CodePipeline(
-            self, 'deploy_pipeline', 
+        #Deploy CDK Code Pipeline
+        code_pipeline=_pipelines.CodePipeline(
+            self, self.stack_name, 
             pipeline_name=self.stack_name,
             synth=_pipelines.ShellStep(
                 'Synth', 
@@ -40,9 +41,9 @@ class CdkCodePipelineStack(Stack):
         )
 
         #if source_action.variables.branch_name=='dev':
-        #deploy_pipeline.add_stage(
-        #    DeployStacks(self, 'Deploy-Dev-Stacks', 'dev', env=dev_env[0])
-        #)
+        code_pipeline.add_stage(
+            DeployStacks(self, 'Deploy-Dev-Stacks', 'dev', env=dev_env[0])
+        )
 
         #deploy_pipeline.add_application_stage(
         #    DeployModules(self, 'Deploy-Prod', 'prod', env=prod_env[0])

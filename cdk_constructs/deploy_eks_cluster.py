@@ -13,8 +13,8 @@ class DeployEksCluster(Construct):
 
         #Deploy Cluster
         eks_cluster=_eks.Cluster(
-            self, 'eks_cluster',
-            cluster_name=id,
+            self, '%s-Cluster' % id,
+            cluster_name='%s-Cluster' % id,
             version=_eks.KubernetesVersion.V1_21
         )
 

@@ -18,6 +18,6 @@ CdkCodePipelineStack(
     env=env[0],
 )
 
-Deploy(app, 'EKS-Cluster', env=env[0])
+#Deploy(app, 'EKS-Cluster', env=env[0])
 
 app.synth()
