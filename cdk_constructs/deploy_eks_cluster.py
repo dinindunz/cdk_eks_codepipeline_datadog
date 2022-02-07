@@ -30,13 +30,19 @@ class DeployEksCluster(Construct):
           vpc=vpc,
           vpc_subnets=vpc.public_subnets,
           version=_eks.KubernetesVersion.V1_21,
-          default_capacity_instance=_ec2.InstanceType.of(_ec2.InstanceClass.BURSTABLE2, _ec2.InstanceSize.MICRO),
+          default_capacity_instance=_ec2.InstanceType.of(
+            _ec2.InstanceClass.BURSTABLE2,
+            _ec2.InstanceSize.MICRO
+          ),
           masters_role=cluster_role
         )
 
         eks_cluster.add_nodegroup_capacity(
           'node_group',
-          instance_types= _ec2.InstanceType('t2.micro'),
+          instance_types=_ec2.InstanceType.of(
+            _ec2.InstanceClass.BURSTABLE2,
+            _ec2.InstanceSize.MICRO
+          ),
           min_size=1,
           max_size=2
         )
