@@ -1,5 +1,6 @@
 from aws_cdk import (
-    aws_eks as _eks
+    aws_eks as _eks,
+    aws_ec2 as _ec2
 )
 from constructs import Construct
 
@@ -12,12 +13,14 @@ class DeployEksCluster(Construct):
         eks_cluster=_eks.Cluster(
             self, '%s-Cluster' % id,
             cluster_name='%s-Cluster' % id,
-            version=_eks.KubernetesVersion.V1_21
+            version=_eks.KubernetesVersion.V1_21,
+            default_capacity=2,
+            default_capacity_instance=_ec2.InstanceType.of(_ec2.InstanceClass.BURSTABLE2, _ec2.InstanceSize.MICRO)
         )
 
         #Deploy the App
         eks_cluster.add_manifest("mypod", {
-            "api_version": "v1",
+            "apiVersion": "v1",
             "kind": "Pod",
             "metadata": {"name": "mypod"},
             "spec": {
