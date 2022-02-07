@@ -37,6 +37,8 @@ class CdkCodePipelineStack(Stack):
                     'ls -al'
                 ]
             ),
+            #Deply only the pipeline first with SelfMutation=False, then redeploy by setting it to True
+            #Give Admin access to codepipeline role and buildproject role
             self_mutation=True
         )
 

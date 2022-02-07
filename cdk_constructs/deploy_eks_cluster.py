@@ -1,10 +1,7 @@
 from aws_cdk import (
-    aws_eks as _eks,
-    aws_ecr as _ecr,
-    aws_ecr_assets as _ecr_assets
+    aws_eks as _eks
 )
 from constructs import Construct
-import cdk_ecr_deployment as _ecr_deployment
 
 class DeployEksCluster(Construct):
 
