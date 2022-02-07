@@ -27,7 +27,7 @@ class DeployEksCluster(Construct):
                 "containers": [{
                     "name": "hello",
                     "image": "%s:%s" % (ecr_repo_name, image_tag),
-                    "ports": [{"container_port": container_port}]
+                    "ports": [{"containerPort": container_port}]
                 }
                 ]
             }
