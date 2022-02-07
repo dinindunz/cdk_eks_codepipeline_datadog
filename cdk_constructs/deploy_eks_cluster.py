@@ -29,12 +29,13 @@ class DeployEksCluster(Construct):
           cluster_name=cluster_name,
           #vpc=vpc,
           #vpc_subnets=vpc.public_subnets,
-          #masters_role=cluster_role
+          #masters_role=cluster_role,
           version=_eks.KubernetesVersion.V1_21,
           default_capacity_instance=_ec2.InstanceType.of(
             _ec2.InstanceClass.BURSTABLE2,
             _ec2.InstanceSize.MICRO
-          )
+          ),
+          default_capacity=2
         )
 
         #eks_cluster.add_nodegroup_capacity(
