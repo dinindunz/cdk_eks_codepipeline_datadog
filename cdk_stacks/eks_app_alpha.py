@@ -24,11 +24,11 @@ class Deploy(Stack):
             region=self.region
         )
 
-        #eks.DeployEksCluster(
-        #    self, 'Deploy_EKS_App_Alpha',
-        #    ecr_repo_name=ecr_repo_name,
-        #    image_tag=image_tag,
-        #    container_port=8080
-        #)
+        eks.DeployEksCluster(
+            self, 'Deploy_EKS_App_Alpha',
+            ecr_repo_name=ecr_repo_name,
+            image_tag=image_tag,
+            container_port=8080
+        )
 
         
