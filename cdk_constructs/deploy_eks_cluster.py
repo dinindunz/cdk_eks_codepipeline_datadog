@@ -37,15 +37,15 @@ class DeployEksCluster(Construct):
           masters_role=cluster_role
         )
 
-        eks_cluster.add_nodegroup_capacity(
-          'node_group',
-          instance_types=_ec2.InstanceType.of(
-            _ec2.InstanceClass.BURSTABLE2,
-            _ec2.InstanceSize.MICRO
-          ),
-          min_size=1,
-          max_size=2
-        )
+        #eks_cluster.add_nodegroup_capacity(
+        #  'node_group',
+        #  instance_types=_ec2.InstanceType.of(
+        #    _ec2.InstanceClass.BURSTABLE2,
+        #    _ec2.InstanceSize.MICRO
+        #  ),
+        #  min_size=1,
+        #  max_size=2
+        #)
 
         #Deploy the App
         eks_cluster.add_manifest("mypod", {
