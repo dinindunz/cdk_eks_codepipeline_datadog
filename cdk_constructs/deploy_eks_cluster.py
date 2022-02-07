@@ -16,16 +16,16 @@ class DeployEksCluster(Construct):
         )
 
         #Deploy the App
-        #eks_cluster.add_manifest("mypod", {
-        #    "api_version": "v1",
-        #    "kind": "Pod",
-        #    "metadata": {"name": "mypod"},
-        #    "spec": {
-        #        "containers": [{
-        #            "name": "hello",
-        #            "image": "%s:%s" % (ecr_repo_name, image_tag),
-        #            "ports": [{"container_port": container_port}]
-        #        }
-        #        ]
-        #    }
-        #})
+        eks_cluster.add_manifest("mypod", {
+            "api_version": "v1",
+            "kind": "Pod",
+            "metadata": {"name": "mypod"},
+            "spec": {
+                "containers": [{
+                    "name": "hello",
+                    "image": "%s:%s" % (ecr_repo_name, image_tag),
+                    "ports": [{"container_port": container_port}]
+                }
+                ]
+            }
+        })
